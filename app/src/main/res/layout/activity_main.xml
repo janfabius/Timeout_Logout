@@ -7,25 +7,15 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/textView3"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="32dp"
-        android:text="Hi, friend! You logged in, after 5 minutes inactivity, you will be logout!"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
         android:id="@+id/textView2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text=" E se fai clic sul pulsante home (per andare alla schermata iniziale - chiudi app) o la luce dello schermo si spegne, dopo 5 minuti, a meno che non riattivi l'app, verrai reindirizzato automaticamente alla schermata di accesso!"
-        app:layout_constraintEnd_toEndOf="@+id/textView3"
-        app:layout_constraintStart_toStartOf="@+id/textView3"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="96dp"
+        android:layout_marginEnd="32dp"
+        android:text="Se fai clic sul pulsante home (per andare alla schermata iniziale - chiudi app) o la luce dello schermo si spegne, dopo N.  minuti, a meno che non riattivi l'app, verrai reindirizzato automaticamente alla schermata di accesso!"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
