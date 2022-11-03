@@ -3,7 +3,9 @@ import android.content.Intent;
 
 import android.os.Bundle;
 
+import android.os.Handler;
 import android.util.Log;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +22,10 @@ public class MainActivity extends AppCompatActivity {
 
     TextView t_inter;
 
+    ProgressBar mProgressBar;
+    private int progressStatus = 0;
+    private Handler handler = new Handler();
+
 
 
     @Override
@@ -31,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         t_inter = findViewById(R.id.txt_inter);
+        mProgressBar = findViewById(R.id.progressBar);
 
 
 
@@ -59,6 +66,8 @@ public class MainActivity extends AppCompatActivity {
 
         t_inter.setText("Stai interagendo!");
 
+
+
         if (timer != null) {
             timer.cancel();
             Log.i("Main", "cancel timer");
@@ -69,6 +78,31 @@ public class MainActivity extends AppCompatActivity {
         Log.i("Main", "Invoking logout timer");
         LogOutTimerTask logoutTimeTask = new LogOutTimerTask();
         timer.schedule(logoutTimeTask, 5000); // 5 sec
+
+
+        new Thread(new Runnable() {
+            public void run() {
+                while (progressStatus < 100) {
+                    progressStatus += 5;
+                    // Update the progress bar and display the
+                    //current value in the text view
+                    handler.post(new Runnable() {
+                        public void run() {
+                            mProgressBar.setProgress(progressStatus);
+                           // textView.setText(progressStatus+"/"+mProgressBar.getMax());
+                        }
+                    });
+                    try {
+                        // Sleep for 200 milliseconds.
+                        Thread.sleep(200);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }).start();
+
+
 
     }
 
@@ -93,6 +127,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void run() {
+
 
             //redirect user to login screen
             Intent i = new Intent(MainActivity.this, LoginActivity.class);
