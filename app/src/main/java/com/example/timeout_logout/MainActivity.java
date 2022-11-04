@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
 //        }
 
         t_inter.setText("Stai interagendo!");
-
+        progressStatus = 0;
 
 
         if (timer != null) {

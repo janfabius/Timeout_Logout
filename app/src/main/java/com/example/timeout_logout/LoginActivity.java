@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -15,7 +16,8 @@ public class LoginActivity extends AppCompatActivity {
 
     private TextInputLayout userName;
     private TextInputLayout password;
-    private View btnLogin;
+    private View btnLogin, btnImposta;
+    private EditText user,pass;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -25,6 +27,9 @@ public class LoginActivity extends AppCompatActivity {
         userName = (TextInputLayout) findViewById(R.id.username_field);
         password = (TextInputLayout) findViewById(R.id.pass_field);
         btnLogin = findViewById(R.id.btn_login);
+        btnImposta = findViewById(R.id.imposta);
+        user = findViewById(R.id.username);
+        pass = findViewById(R.id.password);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,5 +49,16 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
+
+        btnImposta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+              user.setText("a");
+                pass.setText("a");
+            }
+        });
+
+
+
     }
 }
